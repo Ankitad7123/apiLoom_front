@@ -48,7 +48,7 @@ function App() {
     <Router>
       <Center>
         <Box bg="white" height="100vh">
-          <Routes basename="/">
+          <Routes basename="/selection">
             {/* Redirect to Selection if user is logged in */}
             <Route
               path="/"
