@@ -16,12 +16,12 @@ const UserAuth2 = () => {
   useEffect(() => {
     const storedUser = localStorage.getItem('userApi');
     if (storedUser) {
-      navigate('/apiLoom_front/selection'); // Change to your protected route
+      navigate('/selection'); // Change to your protected route
     }
   }, []);
 
   const useAsGuest = () => {
-    navigate('/apiLoom_front/selection'); 
+    navigate('/selection'); 
   };
 
   const handleUsernameChange = (e) => setUsername(e.target.value.trim());
