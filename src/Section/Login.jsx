@@ -92,7 +92,7 @@ const UserAuth = () => {
       localStorage.setItem('userApi', data.username || username);
       setUsername('');
       setPassword('');
-      window.location.href = '/selection'; // Redirect to the desired page after login
+      navigate('/selection'); // Redirect to the desired page after login
     } catch (error) {
       setErrorMessage(error.message);
     } finally {
