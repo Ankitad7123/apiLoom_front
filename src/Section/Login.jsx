@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Button, Input, FormControl, FormLabel, Heading, Alert, AlertIcon, Spinner, Stack, Text } from '@chakra-ui/react';
+import { Box, Button, Input,useMediaQuery, FormControl, FormLabel, Heading, Alert, AlertIcon, Spinner, Stack, Text } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 const TypingEffect = ({ text, onComplete }) => {
   const [displayedText, setDisplayedText] = useState('');
   const [index, setIndex] = useState(0);
-  
+  const [isMobile] = useMediaQuery("(max-width: 468px)");
   useEffect(() => {
     if (index < text.length) {
       const timer = setTimeout(() => {
@@ -18,7 +18,7 @@ const TypingEffect = ({ text, onComplete }) => {
   }, [index, text, onComplete]);
 
   return (
-    <Text fontFamily="monospace" fontSize="lg" display="flex" alignItems="center">
+    <Text width={isMobile?"80vw":"70vw"} fontFamily="monospace" fontSize={isMobile?"small":"lg"} display="flex" alignItems="center">
       <img 
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0LtwervqLAyyD_7nj-oQ0kYCaDlBmbXqyEw&s" 
         alt="apiLOOM logo" 
@@ -38,6 +38,7 @@ const UserAuth = () => {
   const [isLoginMode, setIsLoginMode] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate()
+  const [isMobile] = useMediaQuery("(max-width: 468px)");
   // Welcome message text
   const welcomeText = "Welcome to apiLoom, an API testing platform where you can test, explore, and manage your APIs efficiently.";
 
@@ -104,7 +105,7 @@ const UserAuth = () => {
     <Box >
       {!showForm ? (
         // Show the typing effect initially
-        <Box width="820px" mx="auto"   mt={'290px'}  fontFamily={'monospace'} bg={'white'} color={'black'}>
+        <Box width={isMobile?"100vw":"820px"} fontSize={isMobile?"10px":""}  mx="auto"   mt={isMobile?"250px":'290px'}  fontFamily={'monospace'} bg={'white'} color={'black'}>
         
         <TypingEffect text={welcomeText} onComplete={() => setShowForm(true)} />
         </Box>
