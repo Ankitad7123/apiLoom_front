@@ -51,7 +51,7 @@ function App() {
           <Routes basename="/apiLoom_front">
             {/* Redirect to Selection if user is logged in */}
             <Route
-              path="/"
+              path="/apiLoom_front"
               element={userApi ? <Navigate to="/selection" /> : <Navigate to="/apiloom" />}
             />
 
