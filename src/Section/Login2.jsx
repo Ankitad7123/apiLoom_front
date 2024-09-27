@@ -16,12 +16,12 @@ const UserAuth2 = () => {
   useEffect(() => {
     const storedUser = localStorage.getItem('userApi');
     if (storedUser) {
-      window.location.href = '/selection'; // Change to your protected route
+      window.location.href = '/apiLoom_front/selection'; // Change to your protected route
     }
   }, []);
 
   const useAsGuest = () => {
-    window.location.href = '/selection';
+    window.location.href = '/apiLoom_front/selection';
   };
 
   const handleUsernameChange = (e) => setUsername(e.target.value.trim());
@@ -63,7 +63,7 @@ const UserAuth2 = () => {
       localStorage.setItem('userApi', data.username || username);
       setUsername('');
       setPassword('');
-      window.location.href = '/selection'; // Redirect to the desired page after login
+      window.location.href = '/apiLoom_front/selection'; // Redirect to the desired page after login
     } catch (error) {
       setErrorMessage(error.message);
     } finally {
