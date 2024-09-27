@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Button, Input, FormControl, FormLabel, Heading, Alert, AlertIcon, Spinner, Stack, Text } from '@chakra-ui/react';
-
+import { useNavigate } from 'react-router-dom';
 
 const UserAuth2 = () => {
   const [showForm, setShowForm] = useState(false);
@@ -9,19 +9,19 @@ const UserAuth2 = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoginMode, setIsLoginMode] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-
+  const navigate = useNavigate()
   // Welcome message text
 
   // Check for logged-in user on component mount
   useEffect(() => {
     const storedUser = localStorage.getItem('userApi');
     if (storedUser) {
-      window.location.href = '/apiLoom_front/selection'; // Change to your protected route
+      navigate('/apiLoom_front/selection'); // Change to your protected route
     }
   }, []);
 
   const useAsGuest = () => {
-    window.location.href = '/apiLoom_front/selection';
+    navigate('/apiLoom_front/selection'); 
   };
 
   const handleUsernameChange = (e) => setUsername(e.target.value.trim());
