@@ -82,7 +82,7 @@ function App() {
             <Route path="/selection" element={<Selection />} />
 
             {/* Handle NotFound route */}
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<Selection />} />
           </Routes>
         </Box>
       </Center>
