@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Button, Input, FormControl, FormLabel, Heading, Alert, AlertIcon, Spinner, Stack, Text } from '@chakra-ui/react';
-
+import { useNavigate } from 'react-router-dom';
 const TypingEffect = ({ text, onComplete }) => {
   const [displayedText, setDisplayedText] = useState('');
   const [index, setIndex] = useState(0);
-
+  const navigate = useNavigate()
   useEffect(() => {
     if (index < text.length) {
       const timer = setTimeout(() => {
@@ -45,12 +45,12 @@ const UserAuth = () => {
   useEffect(() => {
     const storedUser = localStorage.getItem('userApi');
     if (storedUser) {
-      window.location.href = '/selection'; // Change to your protected route
+      navigate('/selection'); // Change to your protected route
     }
   }, []);
 
   const useAsGuest = () => {
-    window.location.href = '/selection';
+    navigate('/selection');
   };
 
   const handleUsernameChange = (e) => setUsername(e.target.value.trim());
