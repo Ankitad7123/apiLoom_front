@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const TypingEffect = ({ text, onComplete }) => {
   const [displayedText, setDisplayedText] = useState('');
   const [index, setIndex] = useState(0);
-  const navigate = useNavigate()
+  
   useEffect(() => {
     if (index < text.length) {
       const timer = setTimeout(() => {
@@ -37,7 +37,7 @@ const UserAuth = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoginMode, setIsLoginMode] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-
+  const navigate = useNavigate()
   // Welcome message text
   const welcomeText = "Welcome to apiLoom, an API testing platform where you can test, explore, and manage your APIs efficiently.";
 
